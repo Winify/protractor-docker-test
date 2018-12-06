@@ -1,0 +1,28 @@
+version: "3"
+
+services: 
+#   selenium-standalone:
+#     image: "selenium/standalone-chrome"
+#     healthcheck:
+#       test: ["CMD", "curl", "-f", "http://localhost:4444"]
+#       interval: 1s
+#       retries: 5
+
+  # server:
+  #   build: .
+  #   command: "npm start"
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:8080"]
+  #     interval: 1s
+  #     retries: 5
+    
+  run:
+    build: .
+    volumes: 
+      - .\target:/usr/src/app/target
+    command: "npm run docker-e2e:test"
+    ports:
+      - "3000:3000"
+    # depends_on:
+      # - server
+    #   - selenium-standalone

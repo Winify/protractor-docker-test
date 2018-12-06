@@ -1,0 +1,45 @@
+{
+    "name": "weather-api-docker",
+    "version": "0.0.1",
+    "author": "winify",
+    "description": "sample for testing app server with docker",
+    "keywords": [
+        "protractor",
+        "e2e-testing",
+        "docker"
+    ],
+    "main": "index.js",
+    "config": {
+        "port": "3000"
+    },
+    "scripts": {
+        "start": "node src/server.js",
+        "clean-test": "rimraf target/*",
+        "webdriver-update": "webdriver-manager update",
+        "preprotractor": "npm run clean-test",
+        "protractor": "protractor protractor.conf.js",
+        "docker-e2e:test": "server-test start 3000 protractor"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "ejs": "^2.6.1",
+        "express": "^4.16.4",
+        "request": "^2.88.0"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/chai-as-promised": "^7.1.0",
+        "@types/cucumber": "^4.0.4",
+        "@types/node": "^9.6.40",
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "cucumber": "^4.2.1",
+        "protractor": "^5.4.1",
+        "protractor-cucumber-framework": "^4.2.0",
+        "protractor-multiple-cucumber-html-reporter-plugin": "^1.8.0",
+        "rimraf": "^2.6.2",
+        "start-server-and-test": "1.7.1",
+        "ts-node": "^6.2.0",
+        "typescript": "^2.9.2"
+    }
+}
